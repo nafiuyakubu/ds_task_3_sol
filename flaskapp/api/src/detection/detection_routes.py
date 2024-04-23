@@ -57,19 +57,24 @@ def detect():
 
     interpreter.invoke()
 
-    rect = interpreter.get_tensor(
+    rects = interpreter.get_tensor(
         output_details[0]['index'])
-    score = interpreter.get_tensor(
+    scores = interpreter.get_tensor(
         output_details[2]['index'])
 
-    print("ScoreA: ", score)
-    print("Score: ", score[0])
-    # print("Rect: ", rect[0])
+    print("Scores: ", scores)
+    print("Rects: ", rects)
+    print("Score: ", scores[0])
+    # print("Rect: ", rects[0])
     # print("img: ", img)
 
-    if score[0] > 20.0:
-        print("Image Pass: ")
-        draw_rect2(new_img, rect[0])
+    for index, score in enumerate(scores):
+        if score > 0.5:
+            draw_rect2(new_img,rects[index])
+
+    # if score[0] > 20.0:
+    #     print("Image Pass: ")
+    #     draw_rect2(new_img, rect[0])
         # buffer = cv2.imencode('.jpg', new_img)
         # print("Encoded img: ", buffer)
         # image_base64 = base64.b64encode(buffer).decode('utf-8')
