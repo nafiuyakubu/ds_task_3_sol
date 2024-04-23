@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object Detection</title>
+  </head>
+  <body>
+    <h1>Object Detection</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" accept="image/*" />
+      <button type="submit">Upload Image</button>
+    </form>
+    {% if result_image %}
+    <h2>Result</h2>
+    <img src="data:image/png;base64,{{ result_image }}" alt="Result Image" />
+    {% endif %}
+  </body>
+</html>

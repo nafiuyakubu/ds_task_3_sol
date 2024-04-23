@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  flaskapi:
+    build:
+      context: .
+      dockerfile: api/Dockerfile
+      args:
+        SOURCE_DIR: "./api"
+    environment:
+      FLASK_ENV: development
+    ports: #[HOST_PORT:CONTAINER_PORT]
+      - 8000:5000
+    volumes:
+      - ./api:/app # [Host volume]
+    expose:
+      - 8000
