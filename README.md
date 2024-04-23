@@ -14,6 +14,12 @@ What if given a video instead of images? Does your approach change?
 
 We suggest using https://www.makesense.ai/ to annotate.
 
+# ------------------------------------------
+
+# ------------------------------------------
+
+# ------------------------------------------
+
 Algorithm used is a Single-Shot Object Detection (SSD) model.
 
 1 [Efficiency: SSD models are known for being relatively fast and lightweight
